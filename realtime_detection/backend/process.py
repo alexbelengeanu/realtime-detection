@@ -24,7 +24,7 @@ def process(yolov5: Yolov5Model, maskrcnn: MaskRCNNModel):
 
     # Check if the video stream was opened successfully.
     if not stream.isOpened():
-        print("Nu se poate accesa camera web!")
+        print("Webcam could not be accessed. Terminated.")
         exit()
     while True:
         # Read the video stream frame by frame.
@@ -32,7 +32,7 @@ def process(yolov5: Yolov5Model, maskrcnn: MaskRCNNModel):
 
         # Check if the frame was read successfully.
         if not ret:
-            print("Nu se poate citi frame-ul!")
+            print("A frame could not be read. Terminated.")
             break
 
         # Create a deep copy of the frame for each model.
