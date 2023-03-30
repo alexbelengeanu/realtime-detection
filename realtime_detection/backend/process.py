@@ -48,7 +48,7 @@ def process(yolov5: Yolov5Model, maskrcnn: MaskRCNNModel):
                                           frame=_maskrcnn_copy,
                                           model_type=ModelTypesEnum.MASKRCNN)
 
-        # MaskRCNN was trained on 91 classes from COCO, compared to 80 classes from YOLOv5.
+        # MaskRCNN was trained on 91 classes from COCO, compared to YOLOv5 which was trained on only the first 80 classes.
         # MaskRCNN prediction is None if the model predicts one of the classes that the YOLOv5 model was not trained on.
         if maskrcnn_prediction is not None:
             horizontal = np.concatenate((yolov5_prediction, maskrcnn_prediction), axis=1)
